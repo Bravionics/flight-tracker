@@ -9,7 +9,6 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
 }).addTo(map);
 
 
-
 // Function to update markers
 function updateMarkers() {
     fetch('/flights')

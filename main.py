@@ -1,6 +1,5 @@
 from flask import Flask, jsonify, render_template
 from opensky_api import OpenSkyApi
-import json
 
 app = Flask(__name__)
 api = OpenSkyApi()
@@ -27,14 +26,17 @@ def get_ukr_state_vectors():
     # print(json.dumps(flight_data, indent=4))
     return flight_data
 
+
 @app.route('/')
 def index():
     return render_template('index.html')
+
 
 @app.route('/flights')
 def flights():
     flight_data = get_ukr_state_vectors()
     return jsonify(flight_data)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
